@@ -1,0 +1,240 @@
+% !TeX program = xelatex
+\documentclass[UTF8,a4paper]{article}
+\usepackage{ctex}
+\usepackage{cheatsheet}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{bm}
+\usepackage{centernot}
+\usepackage{mathrsfs}
+
+
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt, leftmargin=*}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt, leftmargin=*}
+\setitemize[2]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt, leftmargin=*}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt, leftmargin=*}
+
+\begin{document}
+% \begin{multicols}{3}
+
+\begin{cheatsheetblock}{Multiplication Laws}
+    matrix multiplication,
+    \begin{itemize}
+        \item $(\bm{A} \bm{B}) \bm{C} = \bm{A} (\bm{B} \bm{C})$ \hfill Associativity (结合律)
+        \item $(\bm{A} + \bm{B}) \bm{C} = \bm{AC} + \bm{BC}$ \hfill Distributivity (分配律)
+        \item $\bm{IA}=\bm{AI}=\bm{A}$ \hfill Multiplication with the identity matrix
+        \item $\bm{AB} \neq \bm{AB}$ \hfill \sout{Commutativity}
+    \end{itemize}
+    scalar multiplication,
+    \begin{itemize}
+        \item $\lambda \psi \bm{C} = \lambda (\psi \bm{C})$ \hfill Associativity (结合律)
+        \item $\lambda (\bm{BC}) = (\lambda \bm{B}) \bm{C} = \bm{B} (\lambda \bm{C}) = (\bm{BC})\lambda$ \hfill Associativity (结合律)
+        \item $(\lambda \bm{C})^{\top} = \lambda \bm{C}^{\top}$
+        \item $(\lambda + \psi) \bm{C} = \lambda\bm{C}+ \psi \bm{C}$  \hfill Distributivity (分配律)
+        \item $\lambda (\bm{B} + \bm{C}) = \lambda\bm{B} +\lambda \bm{C}$  \hfill Distributivity (分配律)
+    \end{itemize}
+    symmetry: given $\bm{A}, \bm{B}$ is symmetrical, $\bm{A} + \bm{B}$ is symmetrical. $\bm{AB}$ could be NOT. \\
+    $\bm{AB} = 0  \centernot\implies \bm{A} = 0 \text{ or } \bm{B} = 0$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Inverse and Transpose}
+    \begin{itemize}
+        \item $\bm{A}\bm{A}^{-1} = \bm{I} = \bm{A}^{-1}\bm{A}$
+        \item $(\bm{AB})^{-1} = \bm{B}^{-1} \bm{A}^{-1}$
+        \item $(\bm{A}^{\top})^\top = \bm{A}$
+        \item $(\bm{A} + \bm{B})^\top = \bm{A}^{\top} + \bm{B}^{\top}$
+        \item $(\bm{AB})^{\top} = \bm{B}^{\top} \bm{A} ^{\top}$
+        \item $(\bm{A} + \bm{B})^{-1} = \bm{A}^{-1} + \bm{B}^{-1} - \bm{A}^{-1} (\bm{A}^{-1} + \bm{B}^{-1})^{-1} \bm{A}^{-1}$
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Matrix Problems}
+    \begin{itemize}
+        \item \textbf{Solve Equations}: rref; condition of no solution; choose free variables, get the result.
+        \item \textbf{Find Inv}: $ [\bm{A} | \bm{I}_{n}] \rightsquigarrow [\bm{I}_{n} | \bm{A}^{-1}]$
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Group}
+    \begin{itemize}
+        \item Closure \hfill$\forall x,y\in\mathcal{G}:x\otimes y\in\mathcal{G}$
+        \item Associativity \hfill $\forall x,y,z\in\mathcal{G}:(x\otimes y)\otimes z=x\otimes(y\otimes z)$
+        \item Neutral element \hfill $\exists e\in\mathcal{G}\forall x\in\mathcal{G}:x\otimes e=x\mathrm{~and~}e\otimes x=x$
+        \item Inverse element, $x^{-1}$ \hfill $\forall x\in\mathcal{G}\exists y\in\mathcal{G}:x\otimes y=e\mathrm{~and~}y\otimes x=e$
+    \end{itemize}
+    Abelian group: group with commutativity \hfill $x\otimes y=y\otimes x$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Vector Space}
+    $V=(\mathcal{V},+,\cdot)$ \hfill inner: $+:\mathcal{V}\times\mathcal{V}\to\mathcal{V}$ \hfill outer: $\cdot:\mathbb{R}\times\mathcal{V}\to\mathcal{V}$
+    \begin{itemize}
+        \item $(\mathcal{V},+)$ is an Abelian group
+        \item distributivity: $\lambda\cdot(\boldsymbol{x}+\boldsymbol{y})=\lambda\cdot\boldsymbol{x}+\lambda\cdot\boldsymbol{y}$; $(\lambda+\psi)\cdot\boldsymbol{x}=\lambda\cdot\boldsymbol{x}+\psi\cdot\boldsymbol{x}$
+        \item Associativity (outer operation) \hfill $\lambda\cdot(\psi\cdot\boldsymbol{x})=(\lambda\psi)\cdot\boldsymbol{x}$
+        \item Neutral element (outer operation) \hfill $\forall\boldsymbol{x}\in\mathcal{V}:1\cdot\boldsymbol{x}=\boldsymbol{x}$
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Subspace}
+    \begin{itemize}
+        \item subset of vector space $V$
+        \item Does it satisfy $\mathcal{U} \neq \varnothing$, in particular $0 \in \mathcal{U}$
+        \item closure for both inner $x + u$ and outer operation $\lambda x$.
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Linear dependence}
+    Exists non-trivial linear combination $\mathbf{0}=\sum_{i=1}^k \lambda_i \boldsymbol{x}_i$.
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Linear Mapping}
+    $\Phi(\lambda x+\psi y)=\lambda \Phi(x)+\psi \Phi(y)$
+
+    Bilinear mapping:\hfill $\Omega(\lambda \boldsymbol{x}+\varphi \boldsymbol{y}, \boldsymbol{z})=\lambda \Omega(\boldsymbol{x}, \boldsymbol{z})+\varphi \Omega(\boldsymbol{y}, \boldsymbol{z})$
+
+    \hfill$\Omega(\boldsymbol{x}, \lambda \boldsymbol{y}+\varphi \boldsymbol{z})=\lambda \Omega(\boldsymbol{x}, \boldsymbol{y})+\varphi \Omega(\boldsymbol{x}, \boldsymbol{z})$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Inner product}
+    \begin{itemize}
+        \item bilinear mapping, \hfill $\Omega: V \times V \rightarrow \mathbb{R}$
+        \item symmetric, \hfill $\Omega(x, y)=\Omega(y, x)$
+        \item positive definite, \hfill $\forall x \in V \backslash\{\mathbf{0}\}: \Omega(\boldsymbol{x}, \boldsymbol{x})>0, \Omega(\mathbf{0}, \mathbf{0})=0$
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Orthogonal and Angle}
+    Orthogonal: \hfill $x \perp y \Leftrightarrow \langle x, y\rangle=0$
+
+    Orth Complement: \hfill $W^\perp = \{ v \in V : \langle v, w \rangle = 0 \text{ for all } w \in W \}$
+
+    Angle: \hfill $\cos \omega=\frac{\langle x, y\rangle}{\sqrt{\langle x, x\rangle\langle y, y\rangle}}$
+
+    Orthogonal matrices: \hfill $\bm{A}^{\top} = \bm{A}^{-1}$
+
+    Projection: linear mapping $\pi: V \rightarrow U$ that \hfill $\pi^{2}=\pi$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Norm}
+    \begin{itemize}
+        \item $\|\lambda x\|=|\lambda| \|x\|$ \hfill Absolutely homogeneous
+        \item $\|x+y\| \leq\|x\|+\|y\|$ \hfill Triangle inequality
+        \item $\|x\| \geq 0$ \hfill Positive definite
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock} {Vector Calculus}
+    $f^{\prime}(x)=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}$; \hfill $\frac{\partial f}{\partial x}=\lim _{h \rightarrow 0} \frac{f(x+h, y)-f(x, y)}{h}$
+
+    \begin{itemize}
+        \item $(f g)^{\prime}=f^{\prime} g+f g^{\prime}$ \hfill \text{Product rule}
+        \item $\left(\frac{f}{g}\right)^{\prime}=\frac{f^{\prime} g-f g^{\prime}}{g^{2}}$ \hfill \text{Quotient rule}
+        \item $(f \circ g)^{\prime}(x)=f^{\prime}(g(x)) g^{\prime}(x)$ \hfill \text{Chain rule}
+        \item $(f+g)^{\prime}=f^{\prime}+g^{\prime}$ \hfill \text{Sum rule}
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Gradients}
+    $        \nabla_x f=\operatorname{grad} f=\frac{\mathrm{d} f}{\mathrm{~d} \boldsymbol{x}}=\left[\begin{array}{lll}
+                \frac{\partial f(\boldsymbol{x})}{\partial x_1} & \ldots & \frac{\partial f(\boldsymbol{x})}{\partial x_n}
+            \end{array}\right] \in \mathbb{R}^{1 \times n}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{partial differentiation rules}
+    \begin{itemize}
+        \item $\frac{\partial}{\partial x}(f(\boldsymbol{x}) g(\boldsymbol{x}))=\frac{\partial f}{\partial x} g(\boldsymbol{x})+f(\boldsymbol{x}) \frac{\partial g}{\partial \boldsymbol{x}}$ \hfill \text{Product rule}
+        \item $\frac{\partial}{\partial \boldsymbol{x}}(f(\boldsymbol{x})+g(\boldsymbol{x}))=\frac{\partial f}{\partial \boldsymbol{x}}+\frac{\partial g}{\partial \boldsymbol{x}}$ \hfill \text{Sum rule}
+        \item $\frac{\partial}{\partial x}(g \circ f)(x)=\frac{\partial}{\partial x}(g(f(x)))=\frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$ \hfill \text{Chain rule}
+        \item $\frac{d f}{d t}=\frac{\partial f}{\partial x_1} \frac{\partial x_1}{\partial t}+\frac{\partial f}{\partial x_2} \frac{\partial x_2}{\partial t}$     \hfill \text{Chain rule, n input}
+        \item $\frac{\partial \bm{x}^\top \bm{a}}{\partial \bm{x}} = \bm{a}^\top$
+        \item $\frac{\partial \bm{a}^\top \bm{x}}{\partial \bm{x}} = \bm{a}^\top$
+        \item $\frac{\partial \bm{a}^\top \bm{X} \bm{b}}{\partial \bm{X}} = \bm{a} \bm{b}^\top$
+        \item $\frac{\partial \bm{x}^\top \bm{B} \bm{x}}{\partial \bm{x}} = \bm{x}^\top (\bm{B} + \bm{B}^\top)$
+        \item $\frac{\partial}{\partial \bm{s}} (\bm{x} - \bm{A}\bm{s})^\top \bm{W} (\bm{x} - \bm{A}\bm{s}) = -2 (\bm{x} - \bm{A}\bm{s})^\top \bm{WA}$
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Vector Calculus}
+    $\frac{f: \mathbb{R}^k \rightarrow \mathbb{R}}{\bm{x} \in \mathbb{R}^k}$: \hfill
+    $\frac{d\,f(\bm{x})}{d\,\bm{x}}=\left[\begin{array}{cccc}
+                \frac{\partial f(\bm{x})}{\partial x_1} & \frac{\partial f(\bm{x})}{\partial x_2} & \cdots & \frac{\partial f(\bm{x})}{\partial x_k}
+            \end{array}\right] \in \mathbb{R}^{1 \times k}$
+
+    $\frac{f: \mathbb{R} \rightarrow \mathbb{R}^k / \mathbb{R}^{1 \times k}}{x \in \mathbb{R}}$: \hfill
+    $\frac{d\left[\begin{array}{ll}
+                    \sin x & \cos x
+                \end{array}\right]}{d x}=\left[\begin{array}{l}
+                \frac{d \sin x}{d x} \\
+                \frac{d \cos x}{d x}
+            \end{array}\right]=\left[\begin{array}{c}
+                \cos x \\
+                -\sin x
+            \end{array}\right]$
+
+    $\frac{f: \mathbb{R} \rightarrow \mathbb{R}^k / \mathbb{R}^{1 \times k}}{x \in \mathbb{R}^m}$: \hfill
+    apply 2, then apply 1; cal; convert back.
+
+    $\frac{f: \mathbb{R}^{m \times k} \rightarrow \mathbb{R}}{\bm{X} \in \mathbb{R}^{m \times k}}$ \hfill
+    $\frac{d\, \operatorname{tr}(\bm{X})}{d\, \bm{X}} = \begin{bmatrix}
+        \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{11}} & \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{12}} \\
+        \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{21}} & \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{22}}
+    \end{bmatrix}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Gaussian distribution}
+    uni var: \hfill $\mathcal{N}\left(\mu, \sigma^2\right): \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$
+
+    mul: \hfill $\mathcal{N}\left(\boldsymbol{\mu}, \boldsymbol{\Sigma}\right): (2\pi)^{-\frac{k}{2}}|\boldsymbol{\Sigma}|^{-\frac{1}{2}} \exp \left(-\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^{\top} \boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right)$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Probability}
+    $P(X)=\sum_{y \in \mathscr{Y}} P(X, Y=y)$ \hfill sum rule
+
+    $P(X, Y)=P(X \mid Y) P(Y)=P(Y \mid X) P(X)$ \hfill product rule
+
+    $P(X \mid Y)=\frac{P(X, Y)}{P(Y)}=\frac{P(Y \mid X) P(X)}{P(Y)}$ \hfill Bayes' rule
+
+    $P(a \leq X \leq b)=\int_{a}^{b} f(x) \mathrm{d} x$
+
+    independent: $p(\mathbf{x}, \mathbf{y})=p(\mathbf{x}) p(\mathbf{y})$
+
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Bernoulli and Binomial distributions}
+$p(x=k)= {n \choose k} \times p^k (1-p)^{n-k}$ \hfill ${n \choose k} = \frac{n!}{k!(n-k)!}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Expectation}
+    $\mathbb{E}_X[g(x)]= \begin{cases}\sum_{x \in X} g(x) p(x) & \text { if } X \text { is discrete } \\ \int_\mathscr{X} g(x) p(x) \mathrm{d} x & \text { if } X \text { is continuous }\end{cases}$
+
+    $\mathbb{E}[\bm{y}]=\mathbb{E}[\bm{A x}+\bm{b}]=\bm{A} \mathbb{E}[\bm{x}]+\bm{b}$
+
+    $\mathbb{V}[\bm{y}]=\mathbb{V}[\bm{A} \bm{x}+\bm{b}]=\bm{A} \mathbb{V}[\bm{x}] \bm{A}^{\top}$
+
+    $\operatorname{Cov}[\bm{x}, \bm{y}]=\mathbb{E}\left[\bm{x}(\bm{A} \bm{x}+\bm{b})^{\top}\right]-\mathbb{E}[\bm{x}] \mathbb{E}[(\bm{A} \bm{x}+\bm{b})]^{\top}=\mathbb{V}[\bm{x}] \bm{A}^{\top}$
+    
+    $\mathbb{V}[\mathbf{x} \pm \mathbf{y}]=\mathbb{V}[\mathbf{x}]+\mathbb{V}[\mathbf{y}] \pm \operatorname{Cov}[\mathbf{x}, \mathbf{y}] \pm \operatorname{Cov}[\mathbf{y}, \mathbf{x}]$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Linear Regression}
+    Loss \hfill $L(\theta)=\frac{1}{N} \sum_{n=1}^N\left(y_n-f_\theta\left(\mathbf{x}_n\right)\right)^2=\frac{1}{N}\|\mathbf{y}-X \theta\|_2^2$ 
+    
+    $=\frac{1}{N}(\mathbf{y}-X \theta)^{\top}(\mathbf{y}-X \theta)$ \hfill $\implies$ \hfill $\theta=\left(X^{\top} X\right)^{-1} X^{\top} \mathbf{y}$
+
+    Regularised: \hfill $L(\theta)=\frac{1}{N}\|\mathbf{y}-X \theta\|_2^2+\lambda\|\theta\|_2^2$ 
+    
+    $=\frac{1}{N}(\mathbf{y}-X \theta)^{\top}(\mathbf{y}-X \theta)+\lambda\|\theta\|_2^2$ \hfill $\implies$ \hfill $\theta=\left(X^{\top} X+N \lambda \mathbf{I}\right)^{-1} X^{\top} \mathbf{y}$
+
+    Probabilistic: \hfill $P(\theta \mid \mathscr{D})=\frac{P(\theta, \mathscr{D})}{P(\mathscr{D})}=\frac{P(\theta) P(\mathscr{D} \mid \theta)}{P(\mathscr{D})}$
+
+    \hfill $\text{Posterior} = \frac{\text{Prior} \times \text{Likelihood}}{\text{Marginal likelihood}}$
+\end{cheatsheetblock}
+
+% \end{multicols}
+\end{document}

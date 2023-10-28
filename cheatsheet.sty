@@ -1,0 +1,48 @@
+\ProvidesPackage{cheatsheet}
+\RequirePackage{kvoptions}
+\RequirePackage{tikz}
+\RequirePackage{environ}
+
+% page setting
+\pagestyle{empty}
+\newlength{\cheatsheetPageWidth}
+\setlength{\cheatsheetPageWidth}{0.03\paperwidth}
+\setlength{\columnsep}{0.0cm}
+\RequirePackage[landscape, margin=\cheatsheetPageWidth]{geometry}
+\renewcommand{\normalsize}{\fontsize{8}{9}\selectfont}
+
+% block setting
+\newlength{\cheatsheetSepLen}
+\setlength{\cheatsheetSepLen}{3pt}
+\newlength{\cheatsheetBlockWidth}
+\setlength{\cheatsheetBlockWidth}{0.3\textwidth}
+
+\tikzstyle{cheatsheetBlockBody} = [
+draw=black,
+dash pattern=on 3pt off 7pt,
+fill=white,
+rectangle,
+rounded corners,
+inner sep=\cheatsheetSepLen,
+inner ysep=\cheatsheetSepLen
+]
+
+\tikzstyle{cheatsheetBlockTitle} = [
+draw=black,
+fill=white,
+very thick,
+text=red,
+font=\sffamily
+]
+
+\NewEnviron{cheatsheetblock}[1]{%
+  \begin{tikzpicture}
+    \node [cheatsheetBlockBody] (box) {%
+      \begin{minipage}{\cheatsheetBlockWidth}
+        \vspace*{0.5\baselineskip}
+        \BODY
+      \end{minipage}
+    }; % closed minipage and ended the node
+    \node[cheatsheetBlockTitle, right=\cheatsheetSepLen * 2] at (box.north west) {#1};
+  \end{tikzpicture}
+}
