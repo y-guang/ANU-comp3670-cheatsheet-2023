@@ -146,6 +146,19 @@
             \end{array}\right] \in \mathbb{R}^{1 \times n}$
 \end{cheatsheetblock}
 
+\begin{cheatsheetblock}{Derivative Formula}
+    $\sin(x)^{\prime}=\cos (x)$ \hfill $\cos (x)^{\prime}=-\sin (x)$ \hfill $(\tan x)^{\prime}=1 / \cos ^{2} x$
+
+    $\ln (x)^{\prime}=1 / x$  \hfill $(e^{x})^{\prime}=e^{x}$ \hfill $(a^{x})^{\prime}=a^{x} \ln (a)$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Integration Formula (all have $+C$)}
+    $a \to ax$ \hfill $x^n \to \frac{x^{n+1}}{n+1}$ \hfill $\frac{1}{x} \to \ln|x|$ \hfill $a^x \to \frac{a^x}{\ln a}$
+
+    $\frac{1}{\sqrt{1-x^2}} \to \sin^{-1} x$ \hfill $\frac{1}{1+x^2} \to \tan^{-1} x$ 
+\end{cheatsheetblock}
+
+
 \begin{cheatsheetblock}{partial differentiation rules}
     \begin{itemize}
         \item $\frac{\partial}{\partial x}(f(\boldsymbol{x}) g(\boldsymbol{x}))=\frac{\partial f}{\partial x} g(\boldsymbol{x})+f(\boldsymbol{x}) \frac{\partial g}{\partial \boldsymbol{x}}$ \hfill \text{Product rule}
@@ -182,9 +195,9 @@
 
     $\frac{f: \mathbb{R}^{m \times k} \rightarrow \mathbb{R}}{\bm{X} \in \mathbb{R}^{m \times k}}$ \hfill
     $\frac{d\, \operatorname{tr}(\bm{X})}{d\, \bm{X}} = \begin{bmatrix}
-        \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{11}} & \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{12}} \\
-        \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{21}} & \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{22}}
-    \end{bmatrix}$
+            \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{11}} & \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{12}} \\
+            \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{21}} & \frac{\partial \operatorname{tr} (\bm{X})}{\partial \bm{X}_{22}}
+        \end{bmatrix}$
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Gaussian distribution}
@@ -207,7 +220,7 @@
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Bernoulli and Binomial distributions}
-$p(x=k)= {n \choose k} \times p^k (1-p)^{n-k}$ \hfill ${n \choose k} = \frac{n!}{k!(n-k)!}$
+    $p(x=k)= {n \choose k} \times p^k (1-p)^{n-k}$ \hfill ${n \choose k} = \frac{n!}{k!(n-k)!}$
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Expectation}
@@ -218,22 +231,170 @@ $p(x=k)= {n \choose k} \times p^k (1-p)^{n-k}$ \hfill ${n \choose k} = \frac{n!}
     $\mathbb{V}[\bm{y}]=\mathbb{V}[\bm{A} \bm{x}+\bm{b}]=\bm{A} \mathbb{V}[\bm{x}] \bm{A}^{\top}$
 
     $\operatorname{Cov}[\bm{x}, \bm{y}]=\mathbb{E}\left[\bm{x}(\bm{A} \bm{x}+\bm{b})^{\top}\right]-\mathbb{E}[\bm{x}] \mathbb{E}[(\bm{A} \bm{x}+\bm{b})]^{\top}=\mathbb{V}[\bm{x}] \bm{A}^{\top}$
-    
+
     $\mathbb{V}[\mathbf{x} \pm \mathbf{y}]=\mathbb{V}[\mathbf{x}]+\mathbb{V}[\mathbf{y}] \pm \operatorname{Cov}[\mathbf{x}, \mathbf{y}] \pm \operatorname{Cov}[\mathbf{y}, \mathbf{x}]$
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Linear Regression}
-    Loss \hfill $L(\theta)=\frac{1}{N} \sum_{n=1}^N\left(y_n-f_\theta\left(\mathbf{x}_n\right)\right)^2=\frac{1}{N}\|\mathbf{y}-X \theta\|_2^2$ 
-    
+    Loss \hfill $L(\theta)=\frac{1}{N} \sum_{n=1}^N\left(y_n-f_\theta\left(\mathbf{x}_n\right)\right)^2=\frac{1}{N}\|\mathbf{y}-X \theta\|_2^2$
+
     $=\frac{1}{N}(\mathbf{y}-X \theta)^{\top}(\mathbf{y}-X \theta)$ \hfill $\implies$ \hfill $\theta=\left(X^{\top} X\right)^{-1} X^{\top} \mathbf{y}$
 
-    Regularised: \hfill $L(\theta)=\frac{1}{N}\|\mathbf{y}-X \theta\|_2^2+\lambda\|\theta\|_2^2$ 
-    
+    Regularised: \hfill $L(\theta)=\frac{1}{N}\|\mathbf{y}-X \theta\|_2^2+\lambda\|\theta\|_2^2$
+
     $=\frac{1}{N}(\mathbf{y}-X \theta)^{\top}(\mathbf{y}-X \theta)+\lambda\|\theta\|_2^2$ \hfill $\implies$ \hfill $\theta=\left(X^{\top} X+N \lambda \mathbf{I}\right)^{-1} X^{\top} \mathbf{y}$
 
     Probabilistic: \hfill $P(\theta \mid \mathscr{D})=\frac{P(\theta, \mathscr{D})}{P(\mathscr{D})}=\frac{P(\theta) P(\mathscr{D} \mid \theta)}{P(\mathscr{D})}$
 
     \hfill $\text{Posterior} = \frac{\text{Prior} \times \text{Likelihood}}{\text{Marginal likelihood}}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{determinant}
+    $\det (\bm{I}) = 1$
+
+    $R_1 \Leftrightarrow R_2 \implies -\det(\bm{A})$ \hfill $R_1 := R_1 - R_2 \implies \det(\bm{A})$
+
+    $\det (\bm{A} \bm{B}) = \det (\bm{A}) \det (\bm{B})$ \hfill $\det (\bm{A}^{\top}) = \det (\bm{A})$
+
+    $\det (\bm{A}^{-1}) = \frac{1}{\det (\bm{A})}$ \hfill $\det (\bm{A}^n) = \det (\bm{A})^n$
+
+    $\begin{bmatrix}
+            t a & t b \\
+            c   & d
+        \end{bmatrix}=t\begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}$
+    \hfill
+    $\begin{bmatrix}
+            a+a^{\prime} & b+b^{\prime} \\
+            c            & d
+        \end{bmatrix}=\begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}+\begin{bmatrix}
+            a^{\prime} & b^{\prime} \\
+            c          & d
+        \end{bmatrix}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{trace}
+    $\operatorname{tr}(\bm{A}+\bm{B})=\operatorname{tr}(\bm{A})+\operatorname{tr}(\bm{B})$ \hfill $\operatorname{tr}(\alpha \bm{A})=\alpha \operatorname{tr}(\bm{A})$
+
+    $\operatorname{tr}(\bm{A} \bm{B})=\operatorname{tr}(\bm{B} \bm{A})$ \hfill $\operatorname{tr}(\bm{A}^{\top})=\operatorname{tr}(\bm{A})$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Eigenvalues and Eigenvectors}
+    $p_{\bm{A}}(\lambda):=\det(\bm{A}-\lambda \bm{I})$ \hfill characteristic polynomial
+
+    solving $p_{\bm{A}}(\lambda)=0$ \hfill eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_n$
+
+    $\bm{A}\bm{x} = \lambda \bm{x}$ \hfill eigenvectors $\bm{x}_1, \bm{x}_2, \ldots, \bm{x}_n$
+
+    $\det(\bm{A}) = \prod_{i=1}^n \lambda_i$ \hfill $\operatorname{tr}(\bm{A}) = \sum_{i=1}^n \lambda_i$
+
+    $k$ distinct eigenvalues $\implies$ $k$ linearly independent eigenvectors
+
+    $k < n$ $\implies$ $\bm{A}$ is defective (not diagonalisable)
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Eigenvalues and Eigenvectors Equivalence}
+    \begin{itemize}
+        \item $\lambda$ is eigenvalue of $\bm{A}$
+        \item $\exists \bm{x} \neq \bm{0}: \bm{A} \bm{x} = \lambda \bm{x}$
+        \item $(\bm{A} - \lambda \bm{I}) \bm{x} = \bm{0}$ have non-trivial solution
+        \item $\operatorname{rk}(\bm{A} - \lambda \bm{I}_n) < n$
+        \item $\det (\bm{A} - \lambda \bm{I}) = 0$
+    \end{itemize}
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Eigen-decomposition}
+    $\bm{A}, \bm{B}$ are similar $:=$ $B = \bm{P}^{-1} \bm{A} \bm{P}$ \hfill $\implies$ \hfill same eigenvalues.
+
+    $\bm{A}$ is diagonalisable $:=$ $\bm{A}$ is similar to a diagonal matrix.
+
+    \hfill that is, $\bm{D} = \bm{P}^{-1} \bm{A} \bm{P}$
+
+    $\bm{P}$ columns are eigenvectors \hfill diagonal matrix $\bm{D}$  eigenvalues.
+
+    A square, symmetric matrix $\implies$ diagonalisable.
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Singular Value Decomposition}
+    $A=U \Sigma V^{\top}$
+
+    $\bm{A}^{\mathrm{T}} \bm{A}=\bm{P} \bm{D} \bm{P}^{\mathrm{T}}$: \hfill $\bm{V} = \bm{P}$, $\bm{D} = \bm{\Sigma}^2$ \hfill col of $P$ need normalized.
+    $\bm{u}_i = \frac{1}{\sigma_i} \bm{A} \bm{v}_i$
+
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Gaussian mixture models (GMM)}
+    $L(\theta)=\log p(X \mid \theta)=\sum_{n=1}^N \log \sum_{k=1}^K \pi_k \mathcal{N}\left(x_n ; \mu_k, \Sigma_k\right)$
+
+    $\frac{\partial L}{\partial \mu_k}, \frac{\partial L}{\partial \Sigma_k} , \frac{\partial L}{\partial \pi_k}$ all set to 0.
+
+    Evaluate responsibilities: \quad $r_{n k}=\frac{\pi_k \mathcal{N}\left(x_n ; \mu_k, \Sigma_k\right)}{\sum_j \pi_j \mathcal{N}\left(x_n ; \mu_j, \Sigma_j\right)}$
+
+    Re-estimate parameters:
+
+    $\mu_k=\frac{1}{N_k} \sum_{n=1}^N r_{n k} x_n$ \hfill $N_k=\sum_{n=1}^N r_{n k}$ \hfill $\pi_k = \frac{N_k}{N}$
+
+    $\Sigma_k=\frac{1}{N_k} \sum_{n=1}^N r_{n k}\left(x_n-\mu_k\right)\left(x_n-\mu_k\right)^{\top}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Classification}
+    $\sigma(x) = \frac{\exp(x)}{1 + \exp(x)} = \frac{1}{1 + e^{-x}}$ \hfill logistic sigmoid
+
+    $p(y_n \mid x_n, \theta)=g_\theta(x_n)$ if $y_n=1$;\quad $1-g_\theta(x_n)$ if $y_n=0$
+
+    $\mathscr{L}_n(\theta)=-y_n \log \left(g_\theta\left(x_n\right)\right)-\left(1-y_n\right) \log \left(1-g_\theta\left(x_n\right)\right)$
+
+    $\frac{\mathrm{d} \mathscr{L}(\theta)}{\mathrm{d} \theta}=\frac{1}{N} \sum_{n=1}^N\left(g_\theta\left(x_n\right)-y_n\right) x_n^T$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Classification (multi-class)}
+    $g_\theta^{(c)}(x)=\operatorname{softmax}\left(f_\theta^{(c)}(x)\right)=\frac{\exp \left(f_\theta^{(c)}(x)\right)}{\sum_{k=1}^C \exp \left(f_\theta^{(k)}(x)\right)}$
+
+    $p\left(y_n=c \mid x_n, \theta\right)=g_\theta^{(c)}\left(x_n\right)$; $\mathscr{L}(\theta)=-\frac{1}{N} \sum_{n=1}^N \log \left(g_\theta^{\left(y_n\right)}\left(x_n\right)\right)$
+
+    $\mathscr{L}(\theta)=-\frac{1}{N} \sum_{n=1}^N \sum_{c=1}^C t_{n c} \log \left(g_\theta^c\left(x_n\right)\right)$ \hfill one-hot coding
+    
+    $\frac{\mathrm{d} \mathscr{L}(\theta)}{\mathrm{d} \theta_c}=\frac{1}{N} \sum_{n=1}^N\left(g_\theta^{(c)}\left(x_n\right)-t_{n c}\right) x_n^T$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Perceptron model}
+    $y_n = 1$, if $\theta^\top x_n \geq 0$; $-1$, $\theta^\top x_n < 0$ \hfill $L(\theta)=-\sum_{n \in \mathscr{M}} y_n \theta^T x_n$
+
+    Accuracy $=\frac{\mathrm{TP}+\mathrm{TN}}{N} \quad$ Precision $=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}}$ 
+
+    Error $=\frac{\mathrm{FP}+\mathrm{FN}}{N} \quad$ Recall $=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}} \quad$ 
+    
+    True positive rate $(\mathrm{TPR})=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}}$ \hfill False $(\mathrm{FPR})=\frac{\mathrm{FP}}{\mathrm{FP}+\mathrm{TN}}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Linear Regression}
+    $L(\theta)=\frac{1}{N} \sum_{n=1}^N\left(y_n-f_\theta\left(\mathbf{x}_n\right)\right)^2$ \hfill Least squares 
+    
+    $\theta=\left(X^{\top} X\right)^{-1} X^{\top} \mathbf{y}$
+
+    $f_\theta(\mathbf{x})=\sum_{d=1}^D \theta_d \phi(x)_d=\theta^{\top} \phi(\mathbf{x})$ \hfill with features
+
+    $L(\theta)=\frac{1}{N} \sum_{n=1}^N\left(y_n-f_\theta\left(\mathbf{x}_n\right)\right)^2$ \hfill $\theta=\left(\Phi^{\top} \Phi\right)^{-1} \Phi^{\top} \mathbf{y}$
+
+    $L(\theta)=\frac{1}{N}\|\mathbf{y}-X \theta\|_2^2+\lambda\|\theta\|_2^2$ \hfill Regularised
+
+    $\theta=\left(X^{\top} X+N \lambda \mathrm{I}\right)^{-1} X^{\top} \mathbf{y}$
+\end{cheatsheetblock}
+
+\begin{cheatsheetblock}{Principal Component Analysis (PCA)}
+\begin{enumerate}
+    \item standardize data $\frac{x-\mu}{\sigma}$
+    \item eigendecomposition of covariance matrix $\frac{1}{N}XX^\top$
+    \item select largest $k$ eigenvalues and corresponding eigenvectors to form projection matrix $\bm{B}$. The project is $\tilde{\bm{X}} = \bm{B}\bm{B}^\top \bm{X}$
+    \item undo standardization $\tilde{\bm{X}} \sigma + \mu$ to get dimension-reduced data.
+\end{enumerate}
+
+
 \end{cheatsheetblock}
 
 % \end{multicols}
