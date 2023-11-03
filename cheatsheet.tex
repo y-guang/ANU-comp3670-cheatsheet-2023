@@ -21,7 +21,7 @@
 \setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt, leftmargin=*}
 
 \begin{document}
-% \begin{multicols}{3}
+\begin{multicols}{3}
 
 \begin{cheatsheetblock}{Multiplication Laws}
     matrix multiplication,
@@ -119,6 +119,8 @@
     Orthogonal matrices: \hfill $\bm{A}^{\top} = \bm{A}^{-1}$
 
     Projection: linear mapping $\pi: V \rightarrow U$ that \hfill $\pi^{2}=\pi$
+
+    \hfill $\operatorname{proj}_{\boldsymbol{U}} \boldsymbol{x}=\frac{\langle \boldsymbol{x}, \boldsymbol{u}\rangle}{\langle \boldsymbol{u}, \boldsymbol{u}\rangle} \boldsymbol{u}$
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Norm}
@@ -155,22 +157,24 @@
 \begin{cheatsheetblock}{Integration Formula (all have $+C$)}
     $a \to ax$ \hfill $x^n \to \frac{x^{n+1}}{n+1}$ \hfill $\frac{1}{x} \to \ln|x|$ \hfill $a^x \to \frac{a^x}{\ln a}$
 
-    $\frac{1}{\sqrt{1-x^2}} \to \sin^{-1} x$ \hfill $\frac{1}{1+x^2} \to \tan^{-1} x$ 
+    $\frac{1}{\sqrt{1-x^2}} \to \sin^{-1} x$ \hfill $\frac{1}{1+x^2} \to \tan^{-1} x$
 \end{cheatsheetblock}
 
 
 \begin{cheatsheetblock}{partial differentiation rules}
-    \begin{itemize}
-        \item $\frac{\partial}{\partial x}(f(\boldsymbol{x}) g(\boldsymbol{x}))=\frac{\partial f}{\partial x} g(\boldsymbol{x})+f(\boldsymbol{x}) \frac{\partial g}{\partial \boldsymbol{x}}$ \hfill \text{Product rule}
-        \item $\frac{\partial}{\partial \boldsymbol{x}}(f(\boldsymbol{x})+g(\boldsymbol{x}))=\frac{\partial f}{\partial \boldsymbol{x}}+\frac{\partial g}{\partial \boldsymbol{x}}$ \hfill \text{Sum rule}
-        \item $\frac{\partial}{\partial x}(g \circ f)(x)=\frac{\partial}{\partial x}(g(f(x)))=\frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$ \hfill \text{Chain rule}
-        \item $\frac{d f}{d t}=\frac{\partial f}{\partial x_1} \frac{\partial x_1}{\partial t}+\frac{\partial f}{\partial x_2} \frac{\partial x_2}{\partial t}$     \hfill \text{Chain rule, n input}
-        \item $\frac{\partial \bm{x}^\top \bm{a}}{\partial \bm{x}} = \bm{a}^\top$
-        \item $\frac{\partial \bm{a}^\top \bm{x}}{\partial \bm{x}} = \bm{a}^\top$
-        \item $\frac{\partial \bm{a}^\top \bm{X} \bm{b}}{\partial \bm{X}} = \bm{a} \bm{b}^\top$
-        \item $\frac{\partial \bm{x}^\top \bm{B} \bm{x}}{\partial \bm{x}} = \bm{x}^\top (\bm{B} + \bm{B}^\top)$
-        \item $\frac{\partial}{\partial \bm{s}} (\bm{x} - \bm{A}\bm{s})^\top \bm{W} (\bm{x} - \bm{A}\bm{s}) = -2 (\bm{x} - \bm{A}\bm{s})^\top \bm{WA}$
-    \end{itemize}
+    $\frac{\partial}{\partial x}(f(\boldsymbol{x}) g(\boldsymbol{x}))=\frac{\partial f}{\partial x} g(\boldsymbol{x})+f(\boldsymbol{x}) \frac{\partial g}{\partial \boldsymbol{x}}$ \hfill \text{Product rule}
+
+    $\frac{\partial}{\partial \boldsymbol{x}}(f(\boldsymbol{x})+g(\boldsymbol{x}))=\frac{\partial f}{\partial \boldsymbol{x}}+\frac{\partial g}{\partial \boldsymbol{x}}$ \hfill \text{Sum rule}
+    
+    $\frac{\partial}{\partial x}(g \circ f)(x)=\frac{\partial}{\partial x}(g(f(x)))=\frac{\partial g}{\partial f} \frac{\partial f}{\partial x}$ \hfill \text{Chain rule}
+
+    $\frac{d f}{d t}=\frac{\partial f}{\partial x_1} \frac{\partial x_1}{\partial t}+\frac{\partial f}{\partial x_2} \frac{\partial x_2}{\partial t}$     \hfill \text{Chain rule, n input}
+    
+    $\frac{\partial \bm{x}^\top \bm{a}}{\partial \bm{x}} = \bm{a}^\top$ \hfill $\frac{\partial \bm{a}^\top \bm{x}}{\partial \bm{x}} = \bm{a}^\top$ \hfill $\frac{\partial \bm{a}^\top \bm{X} \bm{b}}{\partial \bm{X}} = \bm{a} \bm{b}^\top$
+
+    $\frac{\partial \bm{x}^\top \bm{B} \bm{x}}{\partial \bm{x}} = \bm{x}^\top (\bm{B} + \bm{B}^\top)$
+
+    $\frac{\partial}{\partial \bm{s}} (\bm{x} - \bm{A}\bm{s})^\top \bm{W} (\bm{x} - \bm{A}\bm{s}) = -2 (\bm{x} - \bm{A}\bm{s})^\top \bm{WA}$
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Vector Calculus}
@@ -250,7 +254,7 @@
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{determinant}
-    $\det (\bm{I}) = 1$
+    $\det(\bm{A}) = \sum_{k=1}^{n} (-1)^{k+i} a_{i,k} \det(\bm{A}_{\setminus i,k})$ \hfill Laplace expansion
 
     $R_1 \Leftrightarrow R_2 \implies -\det(\bm{A})$ \hfill $R_1 := R_1 - R_2 \implies \det(\bm{A})$
 
@@ -278,7 +282,7 @@
         \end{bmatrix}$
 \end{cheatsheetblock}
 
-\begin{cheatsheetblock}{trace}
+\begin{cheatsheetblock}{Trace}
     $\operatorname{tr}(\bm{A}+\bm{B})=\operatorname{tr}(\bm{A})+\operatorname{tr}(\bm{B})$ \hfill $\operatorname{tr}(\alpha \bm{A})=\alpha \operatorname{tr}(\bm{A})$
 
     $\operatorname{tr}(\bm{A} \bm{B})=\operatorname{tr}(\bm{B} \bm{A})$ \hfill $\operatorname{tr}(\bm{A}^{\top})=\operatorname{tr}(\bm{A})$
@@ -358,23 +362,25 @@
     $p\left(y_n=c \mid x_n, \theta\right)=g_\theta^{(c)}\left(x_n\right)$; $\mathscr{L}(\theta)=-\frac{1}{N} \sum_{n=1}^N \log \left(g_\theta^{\left(y_n\right)}\left(x_n\right)\right)$
 
     $\mathscr{L}(\theta)=-\frac{1}{N} \sum_{n=1}^N \sum_{c=1}^C t_{n c} \log \left(g_\theta^c\left(x_n\right)\right)$ \hfill one-hot coding
-    
+
     $\frac{\mathrm{d} \mathscr{L}(\theta)}{\mathrm{d} \theta_c}=\frac{1}{N} \sum_{n=1}^N\left(g_\theta^{(c)}\left(x_n\right)-t_{n c}\right) x_n^T$
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Perceptron model}
     $y_n = 1$, if $\theta^\top x_n \geq 0$; $-1$, $\theta^\top x_n < 0$ \hfill $L(\theta)=-\sum_{n \in \mathscr{M}} y_n \theta^T x_n$
 
-    Accuracy $=\frac{\mathrm{TP}+\mathrm{TN}}{N} \quad$ Precision $=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}}$ 
+    works only linearly separable.
 
-    Error $=\frac{\mathrm{FP}+\mathrm{FN}}{N} \quad$ Recall $=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}} \quad$ 
-    
+    Accuracy $=\frac{\mathrm{TP}+\mathrm{TN}}{N} \quad$ Precision $=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}}$
+
+    Error $=\frac{\mathrm{FP}+\mathrm{FN}}{N} \quad$ Recall $=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}} \quad$
+
     True positive rate $(\mathrm{TPR})=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}}$ \hfill False $(\mathrm{FPR})=\frac{\mathrm{FP}}{\mathrm{FP}+\mathrm{TN}}$
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Linear Regression}
-    $L(\theta)=\frac{1}{N} \sum_{n=1}^N\left(y_n-f_\theta\left(\mathbf{x}_n\right)\right)^2$ \hfill Least squares 
-    
+    $L(\theta)=\frac{1}{N} \sum_{n=1}^N\left(y_n-f_\theta\left(\mathbf{x}_n\right)\right)^2$ \hfill Least squares
+
     $\theta=\left(X^{\top} X\right)^{-1} X^{\top} \mathbf{y}$
 
     $f_\theta(\mathbf{x})=\sum_{d=1}^D \theta_d \phi(x)_d=\theta^{\top} \phi(\mathbf{x})$ \hfill with features
@@ -387,15 +393,13 @@
 \end{cheatsheetblock}
 
 \begin{cheatsheetblock}{Principal Component Analysis (PCA)}
-\begin{enumerate}
-    \item standardize data $\frac{x-\mu}{\sigma}$
-    \item eigendecomposition of covariance matrix $\frac{1}{N}XX^\top$
-    \item select largest $k$ eigenvalues and corresponding eigenvectors to form projection matrix $\bm{B}$. The project is $\tilde{\bm{X}} = \bm{B}\bm{B}^\top \bm{X}$
-    \item undo standardization $\tilde{\bm{X}} \sigma + \mu$ to get dimension-reduced data.
-\end{enumerate}
-
-
+    \begin{enumerate}
+        \item standardize data $\frac{x-\mu}{\sigma}$
+        \item eigendecomposition of covariance matrix $\frac{1}{N}XX^\top$
+        \item select largest $k$ eigenvalues and corresponding eigenvectors to form projection matrix $\bm{B}$. The project is $\tilde{\bm{X}} = \bm{B}\bm{B}^\top \bm{X}$
+        \item undo standardization $\tilde{\bm{X}} \sigma + \mu$ to get dimension-reduced data.
+    \end{enumerate}
 \end{cheatsheetblock}
 
-% \end{multicols}
+\end{multicols}
 \end{document}
