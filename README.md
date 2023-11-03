@@ -1,4 +1,4 @@
-# ANU COMP2400 Cheat Sheet
+# ANU COMP3670 Cheat Sheet
 
 A cheat sheet for COMP3670 Introduction to Machine Learning of ANU (The Australian National University).
 
