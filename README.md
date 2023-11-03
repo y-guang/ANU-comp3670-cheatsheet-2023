@@ -2,6 +2,10 @@
 
 A cheat sheet for COMP3670 Introduction to Machine Learning of ANU (The Australian National University).
 
+A preview of first page:
+
+![preview](https://github.com/y-guang/comp3670-cheatsheet/releases/download/release/preview.png)
+
 ## License
 
 This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
